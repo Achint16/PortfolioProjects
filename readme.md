@@ -6,6 +6,10 @@
 ###### 1. From: https://ourworldindata.org/covid-deaths
 ###### 2. The data on the coronavirus pandemic.
 
+##### Platforms Used: Tools
+1. Sql
+2. cloud.google.bigquery
+3. Tableau
 ##### Skills used: Joins, CTE's, Temp Tables, Windows Functions, Aggregate Functions, Creating Views, Converting Data Types
 
 
