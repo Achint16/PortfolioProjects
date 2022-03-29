@@ -1,11 +1,17 @@
-/*
+## Covid 19 Data Exploration 
+##### Skills used: Joins, CTE's, Temp Tables, Windows Functions, Aggregate Functions, Creating Views, Converting Data Types
+
+
+
+```
 SELECT *  
 FROM `autonomous-mote-339511.Covid_analysis.CovidDeaths` 
 order by 3,4
 LIMIT 1000
-*/
+```
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-/*
+### Select Data that we are going to be starting with
+```
 SELECT 
     location,
     date,
@@ -15,11 +21,12 @@ SELECT
     population
 from `autonomous-mote-339511.Covid_analysis.CovidDeaths`
 order by 1,2
-*/
+```
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-# looking at total cases vs total deaths and death percentage for India 
 
-/*
+### looking at total cases vs total deaths and death percentage for India 
+
+```
 SELECT 
     location,
     date,
@@ -31,10 +38,10 @@ from `autonomous-mote-339511.Covid_analysis.CovidDeaths`
 WHERE 
     location = 'India'
 order by 1,2
-*/
+```
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
-# total cases vs Population in indai , cases % 
-/*
+### total cases vs Population in india , cases % 
+```
 SELECT 
     location,
     date,
@@ -44,10 +51,10 @@ SELECT
 from `autonomous-mote-339511.Covid_analysis.CovidDeaths`
 where location = 'India'
 order by 1,2
-*/
+```
 -----------------------------------------------------------------------------------------------------------------------------------------
-#showing the countries with highest death count 
-/*
+### showing the countries with highest death count 
+```
 select 
     max(cast(total_deaths as int)) as deathCount,
     continent
@@ -58,10 +65,10 @@ GROUP BY
     continent
 ORDER BY 
     deathCount desc
-*/
+```
 ----------------------------------------------------------------------------------------------------------- 
-# Global Numbers
-/*
+### Global Numbers
+```
 select 
     date, 
     SUM(new_cases) as NewCases,
@@ -77,11 +84,11 @@ GROUP BY
 ORDER BY 
     1,2 
 
-*/
+```
 -----------------------------------------------------------------------------------------------------------------
-# Using another data set and functions like inner join
-# looking at total vacination and total population 
-/*
+### Using another data set and functions like inner join
+### looking at total vacination and total population 
+```
 select 
     dea.date,
     dea.location,
@@ -97,10 +104,10 @@ join `autonomous-mote-339511.Covid_analysis.CovidVacination` vac
     and dea.date = vac.date
 where dea.continent is not null 
 order by 2,3
-*/
+```
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-# Using CTE
-/*
+### Using CTE
+```
 with Popsvsvacs
 as
 (
@@ -124,9 +131,40 @@ select *,
     (rolling_people_vacinated/ population)* 100
 from Popsvsvacs 
 where location = 'India'
-*/
+```
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-# Creating a view
+### Using Temp Table to perform Calculation on Partition By in previous query
+
+```
+DROP Table if exists #PercentPopulationVaccinated
+Create Table #PercentPopulationVaccinated
+(
+Continent nvarchar(255),
+Location nvarchar(255),
+Date datetime,
+Population numeric,
+New_vaccinations numeric,
+RollingPeopleVaccinated numeric
+)
+
+Insert into #PercentPopulationVaccinated
+Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
+, SUM(CONVERT(int,vac.new_vaccinations)) OVER (Partition by dea.Location Order by dea.location, dea.Date) as RollingPeopleVaccinated
+--, (RollingPeopleVaccinated/population)*100
+From PortfolioProject..CovidDeaths dea
+Join PortfolioProject..CovidVaccinations vac
+	On dea.location = vac.location
+	and dea.date = vac.date
+--where dea.continent is not null 
+--order by 2,3
+
+Select *, (RollingPeopleVaccinated/Population)*100
+From #PercentPopulationVaccinated
+
+```
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+### Creating a view
+```
 select 
     dea.date,
     dea.location,
@@ -142,7 +180,7 @@ join `autonomous-mote-339511.Covid_analysis.CovidVacination` vac
     and dea.date = vac.date
 where dea.continent is not null 
 order by 2,3
-
+```
 
 
 
