@@ -2,9 +2,10 @@
 
 ## Covid 19 Data Exploration 
 
-##### Information On datasourse:
+##### Information On datasource:
 ###### 1. From: https://ourworldindata.org/covid-deaths
 ###### 2. The data on the coronavirus pandemic.
+
 ##### Skills used: Joins, CTE's, Temp Tables, Windows Functions, Aggregate Functions, Creating Views, Converting Data Types
 
 
