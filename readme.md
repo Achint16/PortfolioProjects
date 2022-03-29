@@ -3,10 +3,10 @@
 ## Covid 19 Data Exploration 
 
 ##### Information On datasource:
-###### 1. From: https://ourworldindata.org/covid-deaths
-###### 2. The data on the coronavirus pandemic.
+1. From: https://ourworldindata.org/covid-deaths
+2. The data is on the coronavirus pandemic.
 
-##### Platforms Used: Tools
+##### Tools Used:
 1. Sql
 2. cloud.google.bigquery
 3. Tableau
