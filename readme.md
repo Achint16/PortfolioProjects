@@ -20,6 +20,7 @@ FROM `autonomous-mote-339511.Covid_analysis.CovidDeaths`
 order by 3,4
 LIMIT 1000
 ```
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 ### Select Data that we are going to be starting with
 ```
@@ -33,6 +34,8 @@ SELECT
 from `autonomous-mote-339511.Covid_analysis.CovidDeaths`
 order by 1,2
 ```
+![Screenshot (170)](https://user-images.githubusercontent.com/94778793/162557144-e7001823-2a49-43f1-9d5c-0b9fb68e4b8e.png)
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### looking at total cases vs total deaths and death percentage for India 
