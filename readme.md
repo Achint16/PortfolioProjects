@@ -53,6 +53,8 @@ WHERE
     location = 'India'
 order by 1,2
 ```
+![Screenshot (171)](https://user-images.githubusercontent.com/94778793/162557202-51eebbe4-8b28-4073-9349-623ae1263f67.png)
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### total cases vs Population in india , cases % 
 ```
@@ -66,6 +68,8 @@ from `autonomous-mote-339511.Covid_analysis.CovidDeaths`
 where location = 'India'
 order by 1,2
 ```
+![Screenshot (172)](https://user-images.githubusercontent.com/94778793/162557224-52c9ad22-8136-444f-9d0a-70dc58331436.png)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 ### showing the countries with highest death count 
 ```
@@ -80,6 +84,8 @@ GROUP BY
 ORDER BY 
     deathCount desc
 ```
+![Screenshot (173)](https://user-images.githubusercontent.com/94778793/162557274-24732a6b-65b5-460c-b9c6-ab03aa331ed7.png)
+
 ----------------------------------------------------------------------------------------------------------- 
 ### Global Numbers
 ```
@@ -99,6 +105,8 @@ ORDER BY
     1,2 
 
 ```
+![Screenshot (174)](https://user-images.githubusercontent.com/94778793/162557314-9c60939f-51ea-4d89-95ac-36d2bdef79f1.png)
+
 -----------------------------------------------------------------------------------------------------------------
 ### Using another data set and functions like inner join
 ### looking at total vacination and total population 
@@ -119,6 +127,8 @@ join `autonomous-mote-339511.Covid_analysis.CovidVacination` vac
 where dea.continent is not null 
 order by 2,3
 ```
+![Screenshot (175)](https://user-images.githubusercontent.com/94778793/162557373-c28c6195-cf52-4a9e-a797-d4535d02e19d.png)
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 ### Using CTE
 ```
@@ -146,6 +156,8 @@ select *,
 from Popsvsvacs 
 where location = 'India'
 ```
+![Screenshot (176)](https://user-images.githubusercontent.com/94778793/162557424-e84eadcc-e6ce-44ed-a0cb-2290a46fa672.png)
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 ### Using Temp Table to perform Calculation on Partition By in previous query
 
@@ -176,6 +188,7 @@ Select *, (RollingPeopleVaccinated/Population)*100
 From #PercentPopulationVaccinated
 
 ```
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 ### Creating a view
 ```
@@ -195,5 +208,8 @@ join `autonomous-mote-339511.Covid_analysis.CovidVacination` vac
 where dea.continent is not null 
 order by 2,3
 ```
+![Screenshot (177)](https://user-images.githubusercontent.com/94778793/162557513-be5c47b9-a9d7-4ed1-aff9-0eb7441eb938.png)
+
+![Screenshot (178)](https://user-images.githubusercontent.com/94778793/162557521-c78e0766-1800-4996-b263-0cb0c3807875.png)
 
 
