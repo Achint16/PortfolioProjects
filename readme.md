@@ -212,4 +212,7 @@ order by 2,3
 
 ![Screenshot (178)](https://user-images.githubusercontent.com/94778793/162557521-c78e0766-1800-4996-b263-0cb0c3807875.png)
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+### Visualization Of Data 
+![Dashboard 1](https://user-images.githubusercontent.com/94778793/162598250-fd93a2c2-7ed2-4526-8d42-cf3d0aa80e09.png)
 
