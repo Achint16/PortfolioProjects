@@ -109,7 +109,7 @@ ORDER BY
 
 -----------------------------------------------------------------------------------------------------------------
 ### Using another data set and functions like inner join
-### looking at total vacination and total population 
+### looking at total vaccination and total population 
 ```
 select 
     dea.date,
